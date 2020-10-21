@@ -1,0 +1,25 @@
+{
+  "name": "devmitch.com",
+  "version": "1.0.0",
+  "description": "Personal website showcasing projects alongside a blog. Made with Express, EJS and Bootstrap.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devmitch/devmitch.com.git"
+  },
+  "author": "Mitchell Henry",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/devmitch/devmitch.com/issues"
+  },
+  "homepage": "https://github.com/devmitch/devmitch.com#readme",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-partials": "^0.3.0"
+  }
+}
