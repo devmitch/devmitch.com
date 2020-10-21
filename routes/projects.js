@@ -1,5 +1,6 @@
 const express = require('express');
 const projectModels = require('../models/project');
+const authTools = require('../authTools');
 
 let router = express.Router();
 
@@ -23,7 +24,7 @@ router.get('/projects/:title', (req, res, next) => {
     });
 });
 
-router.delete('/projects/delete_project', (req, res, next) => {
+router.delete('/projects/delete_project', authTools.secretRequired, (req, res, next) => {
     projectModels.Project.findOneAndDelete({ title: req.body.title }, (err, projectDoc) => {
         if (err) {
             return res.send(err);
@@ -35,7 +36,7 @@ router.delete('/projects/delete_project', (req, res, next) => {
     });
 });
 
-router.post('/projects/add_project', (req, res, next) => {
+router.post('/projects/add_project', authTools.secretRequired, (req, res, next) => {
     // title, description, repo, stack
     // later add preview field for live preview of app (if applicable, haha pun)
     let project = new projectModels.Project(req.body);
