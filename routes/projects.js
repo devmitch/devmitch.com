@@ -6,11 +6,33 @@ let router = express.Router();
 router.get('/projects', (req, res, next) => {
     projectModels.Project.find({}, (err, projects) => {
         if (err) {
-            res.send(err);
+            return res.send(err);
         }
-        console.log(projects);
         res.render('projects', { projects: projects });
     }) // can i sort these for newest first? or based on some priority field?
+});
+
+router.get('/projects/:title', (req, res, next) => {
+    projectModels.Project.findOne({ title: req.params.title }, (err, projectDoc) => {
+        if (err) {
+            return res.send(err)
+        } else if (projectDoc == null) {
+            return res.send("doesnt exist mate");
+        }
+        res.render('view_project', { project: projectDoc });
+    });
+});
+
+router.delete('/projects/delete_project', (req, res, next) => {
+    projectModels.Project.findOneAndDelete({ title: req.body.title }, (err, projectDoc) => {
+        if (err) {
+            return res.send(err);
+        } else if (projectDoc == null) {
+            return res.send("doesnt exist mate");
+        }
+        res.redirect('/projects');
+
+    });
 });
 
 router.post('/projects/add_project', (req, res, next) => {
@@ -28,7 +50,7 @@ router.post('/projects/add_project', (req, res, next) => {
             return res.send(errMsg); // obviously change for error handling
         }
 
-        res.redirect('/projects');
+        res.redirect('/projects/' + req.body.title);
     })
 });
 

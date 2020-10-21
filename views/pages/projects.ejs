@@ -10,13 +10,13 @@
         </header>
 
         <main>
-            <h2>there will be projects here soon</h2>
             <div class="d-flex mt-4 flex-column justify-content-center">
             <% projects.forEach(project => { %>
                 <div class="card mt-4 mx-auto" style="min-width: 75%;">
                     <div class="card-body">
                         <h4 class="card-title"><%= project.title %></h4>
                         <div class="card-text mb-2"><%= project.description %></div>
+                        <a href="projects/<%= project.title %>" class="btn btn-primary">Read more</a>
                     </div>
                 </div>
             <% }) %>

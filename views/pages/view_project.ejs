@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('../partials/head'); %> 
+    </head>
+
+    <body class="container">
+        <header>
+            <%- include('../partials/header'); %> 
+        </header>
+
+        <main>
+            <div class="d-flex flex-column justify-content-center" style="margin-top: 0px; padding-top: 0px;">
+            <div class="card mx-auto" style="max-width: 80%; min-width: 80%;">
+                <div class="card-body">
+                    <h4 class="card-title"><%= project.title %></h4>
+                    <div class="card-text mb-2"><%= project.description %></div>
+                    <div class="card-text mb-2">Tech Stack: <%= project.stack %></div>
+                    <a href="<%= project.repo %>" class="btn btn-primary">View Repo</a>
+                </div>
+            </div>
+            </div>
+        </main>
+        <footer>
+            <%- include('../partials/footer'); %> 
+        </footer>
+    </body>
+</html>
