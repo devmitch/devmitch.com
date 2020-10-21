@@ -23,6 +23,7 @@
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-partials": "^0.3.0",
-    "mongoose": "^5.10.9"
+    "mongoose": "^5.10.9",
+    "serve-favicon": "^2.5.0"
   }
 }

@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const mainRoutes = require('./routes/main');
 const projectRoutes = require('./routes/projects');
 require("dotenv").config({ path: "variables.env" });
+const favicon = require('serve-favicon');
 const port = 3000;
 
 let app = express();
@@ -17,6 +18,8 @@ mongoose.connect(process.env.DATABASE, {
 });
 
 // setup
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
 app.use(bodyParser.urlencoded({
 	extended: false // what is this for
 }));
